@@ -1,0 +1,27 @@
+<h1>Project For Per Week</h1>
+<%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" %>
+<table class="table">
+  <tr>
+    <th>Title</th>
+    <th>Client</th>
+    <th>PayRate</th>
+    <th>PayFrequency</th>
+      <th>Total Pay</th>
+  </tr>
+<% @project.each do |project| %>
+  <tr>
+    <td><%= project.title %></td>
+    <td><%= project.client_name %></td>
+    <td><%= project.pay_rate %></td>
+    <td><%= project.pay_frequency %></td>
+   <td><%= Date.parse(project.created_at.strftime("%F")).upto(Date.today).count.fdiv(7).round(2) * 20 %> </td>
+  </tr>
+<% end %>
+</table>
+<%#
+require 'date'
+
+str = '2015-06-15'
+
+Date.parse(str).step(Date.today, 7).count                  # => 33
+Date.parse(str).upto(Date.today).count.fdiv(7).round(2)    # => 32.71 %>

@@ -1,0 +1,39 @@
+<br><br>
+<%= form_for(@project) do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div><br>
+  <div>
+    <%= f.label :client_name %>
+    <%= f.text_field :client_name %>
+  </div><br>
+  <div>
+    <%= f.label :pay_rate %>
+    <%= f.text_field :pay_rate %>
+  </div><br>
+
+  <div>
+    <%= f.label :pay_frequency %> <br />
+    <%= f.select :pay_frequency, ['perday','perweek','permonth'] %>
+  </div>
+
+  <div>
+    <h3> Add Credential </h3>
+    <%= f.fields_for :credentials, Credential.new do |project_credential| %>
+      <%= project_credential.label :title, "title" %>
+      <%= project_credential.text_field :title %>
+
+      <%= project_credential.label :email, "email" %>
+      <%= project_credential.email_field :email %>
+
+        <%= project_credential.label :password, "password" %>
+      <%= project_credential.password_field :password %>
+
+      <%= project_credential.label :remark, "remark" %>
+      <%= project_credential.text_field :remark %>
+      <%= f.file_field :image,  accept: 'image/png, image/gif, image/jpeg' %>
+    <% end %>
+  </div>
+  <%= f.submit %>
+<% end %>

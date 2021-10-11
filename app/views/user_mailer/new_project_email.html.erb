@@ -1,0 +1,11 @@
+
+<p>Hello Mr/Miss <%= @user.username %></p>
+<p>Project Name <%= @project.title %></p>
+<p>ClientName: <%= @project.client_name %></p>
+<p>PayRate: <%= @project.pay_rate %></p>
+
+<% @credentials.each do |item| %>
+<p>Project  Email: <%= item.email%></p>
+<p>Project Credentials Password: <%= item.password%></p>
+<p>Project Credentials Title: <%= item.title%></p>
+<% end %>

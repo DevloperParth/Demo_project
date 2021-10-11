@@ -1,0 +1,22 @@
+<h1>Project For Per Month</h1>
+<%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" %>
+<table class="table">
+  <tr>
+    <th>Title </th>
+    <th>Client </th>
+    <th>PayRate </th>
+    <th>PayFrequency </th>
+    <th>total month till date</th>
+    <th>total billing till date</th>
+  </tr>
+<% @project.each do |project| %>
+  <tr>
+    <td><%= project.title %></td>
+    <td><%= project.client_name %></td>
+    <td><%= project.pay_rate %></td>
+    <td><%= project.pay_frequency %></td>
+    <td><%= ((DateTime.now - DateTime.parse(project.created_at.strftime("%F"))).to_f / 365 * 12).round %></td>
+    <td><%= ((DateTime.now - DateTime.parse(project.created_at.strftime("%F"))).to_f / 365 * 12).round * (project.pay_rate || 0) %></td>
+  </tr>
+<% end %>
+</table>

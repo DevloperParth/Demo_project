@@ -1,0 +1,22 @@
+<h1>Project For Per Day</h1>
+<%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" %>
+<table class="table">
+  <tr>
+    <th>Title</th>
+    <th>Client</th>
+    <th>Pay Rate</th>
+    <th>Pay Frequency</th>
+    <th>Total days count</th>
+    <th>total billing till date</th>
+  </tr>
+  <% @project.each do |project| %>
+    <tr>
+      <td><%= project.title %></td>
+      <td><%= project.client_name %></td>
+      <td><%= project.pay_rate %></td>
+      <td><%= project.pay_frequency %></td>
+      <td><%= ((Time.now - project.created_at) / 86400).ceil  %></td>
+      <td><%= ((Time.now - project.created_at) / 86400).ceil * (project&.pay_rate || 0)  %></td>
+    </tr>
+  <% end %>
+</table >
