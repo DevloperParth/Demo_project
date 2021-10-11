@@ -12,8 +12,6 @@ Rails.application.configure do
   config.eager_load = false
 
   # Show full error reports.
-  
-  
 
   # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   # Enable/disable caching. By default caching is disabled.
@@ -77,8 +75,9 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
+  host = '<parthdemoproject>.herokuapp.com'
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: host}
   config.action_mailer.delivery_method = :smtp
   
   config.action_mailer.smtp_settings = {
@@ -88,7 +87,7 @@ Rails.application.configure do
     enable_starttls_auto: true,
     user_name: "parthchoudhary270@gmail.com",
     password: "9399541891", 
-    domain: "smtp.gmail.com",
+    domain: "heroku.com",
     openssl_verify_mode: "none",
   }
 end
