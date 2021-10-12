@@ -1,39 +1,44 @@
-<br><br>
-<%= form_for(@project) do |f| %>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div><br>
-  <div>
-    <%= f.label :client_name %>
-    <%= f.text_field :client_name %>
-  </div><br>
-  <div>
-    <%= f.label :pay_rate %>
-    <%= f.text_field :pay_rate %>
-  </div><br>
+<%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" %>
 
-  <div>
-    <%= f.label :pay_frequency %> <br />
-    <%= f.select :pay_frequency, ['perday','perweek','permonth'] %>
-  </div>
+<%= form_for(@project,  :html => {:class => "form-group"}) do |f| %>
+<div  class="container">
+<h1>Add Project</h1>
+    <div>
+     <%= f.label :title %>
+      <%= f.text_field :title, :class => "form-control" %>
+    </div><br>
+     <div>
+      <%= f.label :client_name %>
+      <%= f.text_field :client_name, :class => "form-control" %>
+      </div><br>
+      <div>
+        <%= f.label :pay_rate%>
+        <%= f.text_field :pay_rate, :class => "form-control" %>
+      </div><br>
 
-  <div>
-    <h3> Add Credential </h3>
-    <%= f.fields_for :credentials, Credential.new do |project_credential| %>
-      <%= project_credential.label :title, "title" %>
-      <%= project_credential.text_field :title %>
+      <div>
+        <%= f.label :pay_frequency %> <br />
+        <%= f.select :pay_frequency,['perday','perweek','permonth'],:class => "form-control" %>
+      </div>
 
-      <%= project_credential.label :email, "email" %>
-      <%= project_credential.email_field :email %>
+      <div>
+        <h3> Add Credential </h3>
+        <%= f.fields_for :credentials, Credential.new do |project_credential| %>
+          <%= project_credential.label :title, "title" %>
+          <%= project_credential.text_field :title, :class => "form-control" %><br>
 
-        <%= project_credential.label :password, "password" %>
-      <%= project_credential.password_field :password %>
+          <%= project_credential.label :email, "email" %>
+          <%= project_credential.email_field :email, :class => "form-control" %>
 
-      <%= project_credential.label :remark, "remark" %>
-      <%= project_credential.text_field :remark %>
-      <%= f.file_field :image,  accept: 'image/png, image/gif, image/jpeg' %>
+            <%= project_credential.label :password, "password" %>
+          <%= project_credential.password_field :password,:class => "form-control" %>
+
+          <%= project_credential.label :remark, "remark" %>
+          <%= project_credential.text_field :remark,:class => "form-control" %><br>
+          <%= f.file_field :image,  accept: 'image/png, image/gif, image/jpeg' %><br>
+        <% end %>
+      </div>
+      <%= f.submit :class => "btn btn-primary btn-block" %>
     <% end %>
-  </div>
-  <%= f.submit %>
-<% end %>
+</div>
+  

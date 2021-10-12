@@ -28,31 +28,30 @@
     <li> <%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
 </div>
 
-<% current_user.projects.each do |project| %>
+    <% current_user.projects.each do |project| %>
 
-<h4>Project Title: <%= project.title %></h4>
-<h4>Project Client Name: <%= project.client_name %></h4>
-<h2> Project Credentials</h2>
-<table border="1">
-<tr>
-<th>id</th>
-<th>title</th>
-<th>email</th>
-<th>password</th>
-</tr>
-<% project.credentials.each do |credential| %>
-<tr>
-<td><%= credential.id %></td>
-<td><%= credential.title %></td>
-<td><%= credential.email %></td>
-<td><%= credential.password %></td>
-</tr>
-<% end %>
-</table>
-<% end %>
+      <h4>Project Title: <%= project.title %></h4>
+      <h4>Project Client Name: <%= project.client_name %></h4>
+      <h2> Project Credentials</h2>
+      <table border="1">
+      <tr>
+      <th>id</th>
+      <th>title</th>
+      <th>email</th>
+      <th>password</th>
+      </tr>
+      <% project.credentials.each do |credential| %>
+      <tr>
+      <td><%= credential.id %></td>
+      <td><%= credential.title %></td>
+      <td><%= credential.email %></td>
+      <td><%= credential.password %></td>
+      </tr>
+    <% end %>
+  </table>
+  <% end %>
 
-
-   <% end %>
+ <% end %>
 
 <% else %>
     <a href="/users/sign_in">Sign in</a>
