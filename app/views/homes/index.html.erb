@@ -1,61 +1,55 @@
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <%# <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> %>
 
-<% if user_signed_in? %>
-
-  <% if can? :get, Project %>
-      <div class="navbar">
-    <a href="#home">Home</a>
-    <a href="/projects/new">Add Project</a>
-    <a href="/projects/assginproject">Assign Project</a>
-    <a href="/showprojects">Show Projects</a>
-
-    <div class="dropdown">
-      <button class="dropbtn">Pay frequency
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-        <a href="/projects/per_day">Per Day</a>
-        <a href="/projects/per_week">Per Week</a>
-        <a href="/projects/per_month">Per Month</a>
-      </div>
-    </div>
-  <li> <%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
-  </div>
-  <%else%>
-    <div class="navbar">
-      <a href="#home">Home</a>
-    <li> <%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
-</div>
-
-    <% current_user.projects.each do |project| %>
-
-      <h4>Project Title: <%= project.title %></h4>
-      <h4>Project Client Name: <%= project.client_name %></h4>
-      <h2> Project Credentials</h2>
-      <table border="1">
-      <tr>
-      <th>id</th>
-      <th>title</th>
-      <th>email</th>
-      <th>password</th>
-      </tr>
-      <% project.credentials.each do |credential| %>
-      <tr>
-      <td><%= credential.id %></td>
-      <td><%= credential.title %></td>
-      <td><%= credential.email %></td>
-      <td><%= credential.password %></td>
-      </tr>
-    <% end %>
-  </table>
-  <% end %>
-
- <% end %>
-
-<% else %>
-    <a href="/users/sign_in">Sign in</a>
-<% end %>
+  <% if user_signed_in? %>
+      <% if can? :get, Project %>
+          <div class="navbar">
+            <a href="#home">Home</a>
+            <a href="/projects/new">Add Project</a>
+            <a href="/projects/assginproject">Assign Project</a>
+            <a href="/showprojects">Show Projects</a>
+            <div class="dropdown">
+              <button class="dropbtn">Pay frequency
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="/projects/per_day">Per Day</a>
+                <a href="/projects/per_week">Per Week</a>
+                <a href="/projects/per_month">Per Month</a>
+              </div>
+            </div>
+              <li> <%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+          </div>
+          <%else%>
+            <div class="navbar">
+              <a href="#home">Home</a>
+              <li> <%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+            </div>
+            <% current_user.projects.each do |project| %>
+              <h4>Project Title: <%= project.title %></h4>
+              <h4>Project Client Name: <%= project.client_name %></h4>
+              <h2> Project Credentials</h2>
+              <table >
+                <tr>
+                  <th>id</th>
+                  <th>title</th>
+                  <th>email</th>
+                  <th>password</th>
+                </tr>
+                <%project.credentials.each do |credential|%>
+                  <tr>
+                    <td><%= credential.id %></td>
+                    <td><%= credential.title %></td>
+                    <td><%= credential.email %></td>
+                    <td><%= credential.password %></td>
+                  </tr>
+                <%end%><%#second each loop%>
+              </table>
+            <%end%><%#first project each loop%>
+      <%end%> <%# if can can end%>
+      <%else%><%# if user not sign%>
+        <%= render 'shared/frontpage' %>
+   <%end %>
 
 
 

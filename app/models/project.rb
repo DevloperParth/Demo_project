@@ -1,5 +1,5 @@
 class Project < ApplicationRecord
-  has_many :credentials, inverse_of: :project
+  has_many :credentials, inverse_of: :project,dependent: :delete_all
   accepts_nested_attributes_for :credentials, reject_if: :all_blank, allow_destroy: true
   has_one_attached :image
   has_many :assigned_projects

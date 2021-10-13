@@ -1,16 +1,19 @@
 <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" %>
 
 <%= form_for(@project,  :html => {:class => "form-group"}) do |f| %>
-<div  class="container">
-<h1>Add Project</h1>
+  <div  class="container">
+    <h1>Add Project</h1>
+
     <div>
-     <%= f.label :title %>
+      <%= f.label :title %>
       <%= f.text_field :title, :class => "form-control" %>
     </div><br>
+
      <div>
-      <%= f.label :client_name %>
-      <%= f.text_field :client_name, :class => "form-control" %>
+        <%= f.label :client_name %>
+        <%= f.text_field :client_name, :class => "form-control" %>
       </div><br>
+
       <div>
         <%= f.label :pay_rate%>
         <%= f.text_field :pay_rate, :class => "form-control" %>

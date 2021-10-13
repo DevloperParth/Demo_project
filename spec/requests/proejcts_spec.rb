@@ -13,10 +13,4 @@ RSpec.describe "Proejcts", type: :request do
       expect(response).to render_template('new')
     end
   end
-  describe "GET assginproject,  type: :projects" do
-    it "renders the assginproject template" do
-      get '/projects/assginproject'
-      expect(response).to render_template('assginproject')
-    end
-  end
 end
