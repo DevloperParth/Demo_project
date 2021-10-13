@@ -53,6 +53,7 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 5.0.0'
   gem 'shoulda-matchers', '~> 3.1', '>= 3.1.1'
+  gem 'rails-controller-testing'
 end
 
 
