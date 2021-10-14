@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     collection do
       get :adduser
       post :save_assginment
+      get :show
     end
   end
 
