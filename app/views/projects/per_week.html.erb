@@ -6,14 +6,13 @@
     <th>Client</th>
     <th>PayRate</th>
     <th>PayFrequency</th>
-      <th>Total Pay</th>
+    <th>Total Pay</th>
   </tr>
 <% @project.each do |project| %>
   <tr>
     <td><%= project.title %></td>
     <td><%= project.client_name %></td>
     <td><%= project.pay_rate %></td>
-    
     <td><%= project.pay_frequency %></td>
    <td><%= Date.parse(project.created_at.strftime("%F")).upto(Date.today).count.fdiv(7).round(2) * project.pay_rate %> </td>
   </tr>

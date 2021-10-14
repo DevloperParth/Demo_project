@@ -13,10 +13,7 @@ class AssginedprojectsController < ApplicationController
     UserMailer.new_project_email(@project, @user, @credentials).deliver_now
     redirect_to '/projects/assginproject'
   end
-  def show
-    @project = Project.find(params[:id])
-  end
-
+  
   private
 
   def assignt_params

@@ -21,6 +21,7 @@
     <td><%= project.client_name %></td>
      <td><%= project.pay_rate %></td>
     <td><%= link_to "ADD USER", save_assginment_assginedprojects_path({user_id: params[:user], project_id: project.id}), method: :post %></td>
+   
   </tr>
 <% end %>
 
