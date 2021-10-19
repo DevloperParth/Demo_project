@@ -1,12 +1,14 @@
-<%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" %>
-  <table class="table">
+<%# <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" %> 
+  <table id="customers">
   <tr>
     <th>ProjectName</th>
     <th>Assign Users</th>
   </tr>
- <% @assignedProject.each do |record| %>
+ <% @Show_Assgind_Projects.each do |record| %>
   <tr>
-    <td><%= record&.project&.title %></td>
-   <td><%= record.user&.username%></td>
+    <td><%= record.title %></td>
+     <% record.users.each do |user_recod|%>
+      <td><%= user_recod.username %></td>
+    <% end %>
   </tr>
 <% end %>

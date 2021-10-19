@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       get :per_month
       get :per_week
       get :assginproject
-      get :project_invoice
+      get :All_Projects
     end
   end
   resources :assginedprojects do
@@ -20,7 +20,8 @@ Rails.application.routes.draw do
   resources :showprojects
 
   root to: "homes#index"
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
+
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

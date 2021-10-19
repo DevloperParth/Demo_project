@@ -19,20 +19,20 @@ class ProjectsController < ApplicationController
 
   def assginproject
     @user = User.all
-    @project = Project.all
+    # @project = Project.all
   end
-
-  def project_invoice; end
 
   def create
     @project = Project.create(project_params)
       if @project.save
-        redirect_to '/homes'
+        flash[:notice] = "Project Added ."
+         redirect_to '/homes'
       else
-        redirect_to '/projects/'
+        # redirect_to '/projects/'
     end
   end
 
+  private
   def project_params
     params.require(:project)
           .permit(:title, :client_name, :pay_rate, :pay_frequency, :image,

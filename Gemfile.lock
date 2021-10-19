@@ -81,6 +81,7 @@ GEM
     climate_control (0.2.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
+    cocoon (1.2.15)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
     devise (4.8.0)
@@ -260,6 +261,7 @@ DEPENDENCIES
   byebug
   cancan
   capybara (>= 3.26)
+  cocoon
   devise
   figaro
   jbuilder (~> 2.7)

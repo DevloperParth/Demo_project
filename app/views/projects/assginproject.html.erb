@@ -1,12 +1,11 @@
-<%= link_to 'Back',"/homes" , :class => "btn btn-primary" %>
+<%# <%= link_to 'Back',"/homes" , :class => "btn btn-primary" %> 
   <br>
   <br>
 <h1 style=" text-align: center;">Select User For Project</h1>
   <br>
   <br>
-<%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" %>
 
-<table class = "table">
+<table id="customers">
   <tr>
     <th>id</th>
     <th>email</th>
@@ -15,11 +14,13 @@
   </tr>
 <% @user.each do |user| %>
   <tr>
-    <td><%= user.id %></td>
-    <td><%= user.email %></td>
-    <td><%= user.username %></td>
-    <td><%= link_to "Assign project", {:controller => "assginedprojects", :action => "adduser", :user => user.id }%></td>
-  </tr>
+    <% if user.confirmed?%>
+      <td><%= user.id %></td>
+      <td><%= user.email %></td>
+      <td><%= user.username %></td>
+      <td><%= link_to "Assign project", {:controller => "assginedprojects", :action => "adduser", :user => user.id }%></td>
+    </tr>
+    <% end %>
 <% end %>
 
 

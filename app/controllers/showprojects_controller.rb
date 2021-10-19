@@ -1,5 +1,5 @@
 class ShowprojectsController < ApplicationController
   def index
-    @assignedProject = AssignedProject.all
+    @Show_Assgind_Projects = Project.all
   end
 end

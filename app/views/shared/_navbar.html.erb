@@ -1,19 +1,6 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>DemoProject</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
 
   <% if user_signed_in? %>
-      <% if can? :manage, Project %>
+      <% if can? :get, Project %>
           <div class="navbar">
             <a href="/">Home</a>
             <a href="/projects/new">Add Project</a>
@@ -39,8 +26,3 @@
       <%end%> <%# if can can end%>
       <%else%><%# if user not sign%>
    <%end %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-    <%= yield %>
-  </body>
-</html>

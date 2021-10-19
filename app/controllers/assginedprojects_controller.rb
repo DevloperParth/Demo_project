@@ -1,7 +1,7 @@
 class AssginedprojectsController < ApplicationController
   def adduser
     @project = Project.all
-    @assginproject = AssignedProject.new()
+    # @assginproject = AssignedProject.new()
   end
 
   def save_assginment
@@ -13,9 +13,8 @@ class AssginedprojectsController < ApplicationController
     UserMailer.new_project_email(@project, @user, @credentials).deliver_now
     redirect_to '/projects/assginproject'
   end
-  
-  private
 
+  private
   def assignt_params
     params.require(:assginproject).permit(:project_id, :user_id)
   end

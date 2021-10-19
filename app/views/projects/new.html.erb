@@ -1,14 +1,10 @@
-<%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" %>
 
-<%= form_for(@project,  :html => {:class => "form-group"}) do |f| %>
+<%= form_for(@project, :html => {:class => "form-control"}) do |f| %>
   <div  class="container">
     <h1>Add Project</h1>
-
     <div>
       <%= f.label :title %>
-      <%= f.text_field :title, :class => "form-control" %>
-    </div><br>
-
+      <%= f.text_field :title, :class => "form-control" %>  
      <div>
         <%= f.label :client_name %>
         <%= f.text_field :client_name, :class => "form-control" %>
@@ -21,7 +17,7 @@
 
       <div>
         <%= f.label :pay_frequency %> <br />
-        <%= f.select :pay_frequency,['perday','perweek','permonth'],:class => "form-control" %>
+        <%= f.select :pay_frequency,['perday','perweek','permonth'], :class => "form-control" %>
       </div>
 
       <div>
@@ -41,7 +37,7 @@
           <%= f.file_field :image,  accept: 'image/png, image/gif, image/jpeg' %><br>
         <% end %>
       </div>
-      <%= f.submit :class => "btn btn-primary btn-block" %>
+      <br>
+      <%= f.submit  %>
     <% end %>
 </div>
-  

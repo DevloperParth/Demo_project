@@ -1,12 +1,11 @@
-<%= link_to 'Back',"/projects/assginproject" , :class => "btn btn-primary" %>
+<%# <%= link_to 'Back',"/projects/assginproject" , :class => "btn btn-primary" %> 
 <br>
 <br>
 <h1 style=" text-align: center;">Assign Project To User</h1>
 <br>
 <br>
 
-<%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" %>
-<table class="table" >
+<table id="customers" >
   <tr>
     <th>id</th>
     <th>project title</th>
@@ -21,7 +20,6 @@
     <td><%= project.client_name %></td>
      <td><%= project.pay_rate %></td>
     <td><%= link_to "ADD USER", save_assginment_assginedprojects_path({user_id: params[:user], project_id: project.id}), method: :post %></td>
-   
   </tr>
 <% end %>
 

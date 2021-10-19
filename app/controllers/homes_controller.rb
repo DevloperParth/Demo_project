@@ -1,7 +1,8 @@
 class HomesController < ApplicationController
+   before_action :authenticate_user!
   def index
-    @user = User.all
-    @project = Project.all
+    # @user = User.all
+    # @project = Project.all
   end
 
   def show; end

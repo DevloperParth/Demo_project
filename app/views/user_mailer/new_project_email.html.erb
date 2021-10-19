@@ -4,6 +4,11 @@
 <p>ClientName: <%= @project.client_name %></p>
 <p>PayRate: <%= @project.pay_rate %></p>
 
+
+<% @project.users.each do |project| %>
+<p>anotheruser: <%= project.username%></p>
+<% end %>
+
 <% @credentials.each do |item| %>
 <p>Project  Email: <%= item.email%></p>
 <p>Project Credentials Password: <%= item.password%></p>

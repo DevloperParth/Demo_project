@@ -23,6 +23,8 @@ gem 'jquery-rails'
 gem "paperclip", "~> 4.1.1"
 gem 'rails_12factor'
 gem 'figaro'
+gem 'cocoon'
+
 
 
 # Use Redis adapter to run Action Cable in production
