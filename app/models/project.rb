@@ -5,5 +5,8 @@ class Project < ApplicationRecord
   has_many :assigned_projects
   has_many :users, through: :assigned_projects, dependent: :delete_all
   validates :title, presence: true
+  validates :client_name, presence: true
+  validates :pay_frequency, presence: true
+  validates :pay_rate, presence: true
   # scope :this_month, -> { where(created_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month) }
 end

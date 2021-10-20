@@ -29,6 +29,7 @@ class ProjectsController < ApplicationController
          redirect_to '/homes'
       else
         # redirect_to '/projects/'
+        render :new
     end
   end
 
